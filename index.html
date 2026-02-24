@@ -3,299 +3,516 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>EP Suite — Plugin Downloads for PageMotor</title>
+	<title>EP Suite &mdash; Plugin Downloads for PageMotor</title>
+	<meta name="description" content="Download the EP Suite of add-on plugins for PageMotor. Email, GDPR, Booking, Newsletter, and more.">
 	<style>
 		* { margin: 0; padding: 0; box-sizing: border-box; }
 
+		:root {
+			--brand: #c08040;
+			--brand-light: #d4985a;
+			--brand-glow: rgba(192, 128, 64, 0.15);
+			--brand-glow-strong: rgba(192, 128, 64, 0.25);
+			--bg: #faf8f5;
+			--bg-white: #fff;
+			--bg-cream: #f5f0ea;
+			--text: #2c2418;
+			--text-secondary: #7a6e5f;
+			--text-light: #a69882;
+			--border: #e8e0d4;
+			--border-light: #f0ebe5;
+		}
+
 		body {
 			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
-			background: #0f1117;
-			color: #e1e4e8;
+			background: var(--bg);
+			color: var(--text);
 			min-height: 100vh;
+			line-height: 1.5;
+			-webkit-font-smoothing: antialiased;
 		}
 
-		.header {
-			padding: 3rem 2rem 2rem;
+		/* ── Hero ── */
+
+		.hero {
+			background: var(--text);
+			color: #fff;
+			padding: 4rem 2rem 3.5rem;
 			text-align: center;
-			border-bottom: 1px solid #21262d;
+			position: relative;
+			overflow: hidden;
 		}
 
-		.header h1 {
-			font-size: 2rem;
-			font-weight: 700;
-			letter-spacing: -0.02em;
-			color: #f0f3f6;
-			margin-bottom: 0.5rem;
+		.hero::before {
+			content: '';
+			position: absolute;
+			top: 0; left: 0; right: 0; bottom: 0;
+			background:
+				radial-gradient(ellipse 80% 50% at 20% 40%, rgba(192, 128, 64, 0.12), transparent),
+				radial-gradient(ellipse 60% 60% at 80% 30%, rgba(192, 128, 64, 0.08), transparent);
+			pointer-events: none;
 		}
 
-		.header h1 span {
-			color: #58a6ff;
-		}
-
-		.header p {
-			color: #8b949e;
-			font-size: 1.05rem;
-			max-width: 500px;
+		.hero-content {
+			position: relative;
+			max-width: 600px;
 			margin: 0 auto;
 		}
 
-		.container {
-			max-width: 800px;
-			margin: 0 auto;
-			padding: 2rem;
-		}
-
-		.section-label {
+		.hero-badge {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.4rem;
 			font-size: 0.75rem;
 			font-weight: 600;
 			text-transform: uppercase;
-			letter-spacing: 0.08em;
-			color: #8b949e;
-			margin-bottom: 0.75rem;
-			padding-left: 0.25rem;
+			letter-spacing: 0.1em;
+			color: var(--brand-light);
+			margin-bottom: 1.25rem;
 		}
+
+		.hero-badge svg {
+			width: 16px;
+			height: 16px;
+		}
+
+		.hero h1 {
+			font-size: 2.4rem;
+			font-weight: 700;
+			letter-spacing: -0.03em;
+			line-height: 1.15;
+			margin-bottom: 0.75rem;
+		}
+
+		.hero h1 em {
+			font-style: normal;
+			color: var(--brand);
+		}
+
+		.hero p {
+			font-size: 1.1rem;
+			color: rgba(255, 255, 255, 0.65);
+			max-width: 440px;
+			margin: 0 auto;
+		}
+
+		/* ── Container ── */
+
+		.container {
+			max-width: 780px;
+			margin: 0 auto;
+			padding: 2.5rem 2rem 3rem;
+		}
+
+		/* ── Install Banner ── */
+
+		.install-banner {
+			display: flex;
+			align-items: flex-start;
+			gap: 0.75rem;
+			background: var(--bg-cream);
+			border: 1px solid var(--border);
+			border-radius: 10px;
+			padding: 1rem 1.25rem;
+			margin-bottom: 2.5rem;
+			font-size: 0.88rem;
+			color: var(--text-secondary);
+			line-height: 1.55;
+		}
+
+		.install-banner svg {
+			flex-shrink: 0;
+			width: 18px;
+			height: 18px;
+			color: var(--brand);
+			margin-top: 1px;
+		}
+
+		.install-banner strong {
+			color: var(--text);
+		}
+
+		/* ── Section Labels ── */
+
+		.section-label {
+			font-size: 0.7rem;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+			color: var(--text-light);
+			margin-bottom: 0.6rem;
+			padding-left: 0.15rem;
+		}
+
+		/* ── Plugin Cards ── */
 
 		.plugin-grid {
 			display: flex;
 			flex-direction: column;
-			gap: 1px;
-			background: #21262d;
-			border-radius: 8px;
+			border-radius: 12px;
 			overflow: hidden;
-			margin-bottom: 2.5rem;
+			border: 1px solid var(--border);
+			margin-bottom: 2.25rem;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 		}
 
 		.plugin-card {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			padding: 1rem 1.25rem;
-			background: #161b22;
+			padding: 1.1rem 1.25rem;
+			background: var(--bg-white);
+			border-bottom: 1px solid var(--border-light);
 			transition: background 0.15s;
 		}
 
+		.plugin-card:last-child {
+			border-bottom: none;
+		}
+
 		.plugin-card:hover {
-			background: #1c2129;
+			background: #fdfcfa;
 		}
 
 		.plugin-info {
 			flex: 1;
+			min-width: 0;
 		}
 
 		.plugin-name {
-			font-size: 1rem;
+			font-size: 0.95rem;
 			font-weight: 600;
-			color: #f0f3f6;
-			margin-bottom: 0.2rem;
+			color: var(--text);
+			margin-bottom: 0.15rem;
+		}
+
+		.plugin-meta {
+			display: flex;
+			align-items: center;
+			gap: 0.6rem;
 		}
 
 		.plugin-desc {
-			font-size: 0.85rem;
-			color: #8b949e;
+			font-size: 0.82rem;
+			color: var(--text-secondary);
+		}
+
+		.plugin-requires {
+			font-size: 0.72rem;
+			color: var(--text-light);
+			white-space: nowrap;
 		}
 
 		.plugin-version {
-			font-size: 0.75rem;
-			color: #58a6ff;
-			background: rgba(88, 166, 255, 0.1);
-			padding: 0.15rem 0.5rem;
+			font-size: 0.72rem;
+			font-weight: 600;
+			color: var(--brand);
+			background: var(--brand-glow);
+			padding: 0.2rem 0.55rem;
 			border-radius: 10px;
-			margin-right: 1rem;
+			margin-right: 0.75rem;
 			white-space: nowrap;
 		}
 
 		.download-btn {
 			display: inline-flex;
 			align-items: center;
-			gap: 0.4rem;
-			padding: 0.45rem 1rem;
-			background: #238636;
+			gap: 0.35rem;
+			padding: 0.5rem 1.1rem;
+			background: var(--brand);
 			color: #fff;
 			text-decoration: none;
-			border-radius: 6px;
-			font-size: 0.85rem;
-			font-weight: 500;
-			transition: background 0.15s;
+			border-radius: 8px;
+			font-size: 0.82rem;
+			font-weight: 600;
+			transition: all 0.2s;
 			white-space: nowrap;
+			box-shadow: 0 1px 3px rgba(192, 128, 64, 0.3);
 		}
 
 		.download-btn:hover {
-			background: #2ea043;
+			background: var(--brand-light);
+			box-shadow: 0 2px 8px rgba(192, 128, 64, 0.35);
+			transform: translateY(-1px);
 		}
 
 		.download-btn svg {
-			width: 14px;
-			height: 14px;
+			width: 13px;
+			height: 13px;
 		}
+
+		/* ── Dependency Tags ── */
+
+		.plugin-requires-tag {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.25rem;
+			font-size: 0.68rem;
+			color: var(--text-light);
+			background: var(--bg);
+			padding: 0.1rem 0.45rem;
+			border-radius: 4px;
+			margin-left: 0.5rem;
+		}
+
+		.plugin-requires-tag svg {
+			width: 10px;
+			height: 10px;
+		}
+
+		/* ── Footer ── */
 
 		.footer {
 			text-align: center;
 			padding: 2rem;
-			border-top: 1px solid #21262d;
-			color: #484f58;
-			font-size: 0.8rem;
+			border-top: 1px solid var(--border);
+			background: var(--bg-cream);
+		}
+
+		.footer-brand {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			margin-bottom: 0.4rem;
+		}
+
+		.footer-logo {
+			font-size: 0.85rem;
+			font-weight: 700;
+			color: var(--brand);
+			background: var(--brand-glow);
+			padding: 0.2rem 0.5rem;
+			border-radius: 5px;
+			letter-spacing: 0.02em;
+		}
+
+		.footer p {
+			color: var(--text-light);
+			font-size: 0.78rem;
 		}
 
 		.footer a {
-			color: #58a6ff;
+			color: var(--brand);
 			text-decoration: none;
+			font-weight: 500;
 		}
 
 		.footer a:hover {
 			text-decoration: underline;
 		}
 
-		.note {
-			background: #161b22;
-			border: 1px solid #21262d;
-			border-radius: 8px;
-			padding: 1rem 1.25rem;
-			margin-bottom: 2.5rem;
-			font-size: 0.85rem;
-			color: #8b949e;
-			line-height: 1.5;
+		.footer-links {
+			margin-top: 0.75rem;
+			display: flex;
+			justify-content: center;
+			gap: 1.5rem;
 		}
 
-		.note strong {
-			color: #e1e4e8;
+		.footer-links a {
+			font-size: 0.78rem;
+			color: var(--text-secondary);
 		}
 
-		@media (max-width: 600px) {
+		/* ── Responsive ── */
+
+		@media (max-width: 640px) {
+			.hero { padding: 3rem 1.5rem 2.5rem; }
+			.hero h1 { font-size: 1.8rem; }
+			.container { padding: 2rem 1.25rem; }
+
 			.plugin-card {
 				flex-wrap: wrap;
-				gap: 0.75rem;
+				gap: 0.6rem;
+				padding: 1rem;
 			}
+
+			.plugin-meta { flex-wrap: wrap; }
+
 			.plugin-version {
 				margin-right: 0;
+				order: -1;
 			}
+
 			.download-btn {
 				width: 100%;
 				justify-content: center;
+				padding: 0.6rem;
 			}
 		}
 	</style>
 </head>
 <body>
 
-	<div class="header">
-		<h1><span>EP Suite</span> Downloads</h1>
-		<p>Add-on plugins for PageMotor. Download, upload via Manage Plugins, done.</p>
+	<div class="hero">
+		<div class="hero-content">
+			<div class="hero-badge">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+				EP Suite for PageMotor
+			</div>
+			<h1>Everything you need to <em>get started</em></h1>
+			<p>Add-on plugins that extend PageMotor with email, booking, newsletters, GDPR compliance, and more.</p>
+		</div>
 	</div>
 
 	<div class="container">
 
-		<div class="note">
-			<strong>Installation:</strong> Download any plugin below, then upload the .zip file via
-			<strong>Admin &rarr; Manage Plugins</strong> in your PageMotor dashboard.
-			All plugins require PageMotor 0.6b or later.
+		<div class="install-banner">
+			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+			<div>
+				<strong>Installation:</strong> Download any plugin below, then upload the .zip via
+				<strong>Admin &rarr; Manage Plugins</strong> in your PageMotor dashboard.
+				All plugins require PageMotor 0.6b or later.
+			</div>
 		</div>
+
+		<!-- Core Plugins -->
 
 		<div class="section-label">Core Plugins</div>
 		<div class="plugin-grid">
 			<div class="plugin-card">
 				<div class="plugin-info">
 					<div class="plugin-name">EP Email</div>
-					<div class="plugin-desc">SMTP email, contact forms, email templates, and logging</div>
+					<div class="plugin-meta">
+						<span class="plugin-desc">SMTP email, contact forms, templates, and logging</span>
+					</div>
 				</div>
 				<span class="plugin-version">v1.9.17</span>
 				<a href="https://github.com/ElmsPark-Studio/ep-suite-downloads/releases/download/latest/ep-email-v1.9.17.zip" class="download-btn">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
 					Download
 				</a>
 			</div>
 			<div class="plugin-card">
 				<div class="plugin-info">
 					<div class="plugin-name">EP GDPR</div>
-					<div class="plugin-desc">Cookie consent, data export, right-to-erasure requests</div>
+					<div class="plugin-meta">
+						<span class="plugin-desc">Cookie consent, data export, and right-to-erasure requests</span>
+					</div>
 				</div>
 				<span class="plugin-version">v1.1.15</span>
 				<a href="https://github.com/ElmsPark-Studio/ep-suite-downloads/releases/download/latest/ep-gdpr-v1.1.15.zip" class="download-btn">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
 					Download
 				</a>
 			</div>
 			<div class="plugin-card">
 				<div class="plugin-info">
 					<div class="plugin-name">EP Booking</div>
-					<div class="plugin-desc">Appointment scheduling with staff, services, and availability</div>
+					<div class="plugin-meta">
+						<span class="plugin-desc">Appointment scheduling with staff, services, and availability</span>
+					</div>
 				</div>
 				<span class="plugin-version">v1.0.24</span>
 				<a href="https://github.com/ElmsPark-Studio/ep-suite-downloads/releases/download/latest/ep-booking-v1.0.24.zip" class="download-btn">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
 					Download
 				</a>
 			</div>
 			<div class="plugin-card">
 				<div class="plugin-info">
 					<div class="plugin-name">EP Newsletter</div>
-					<div class="plugin-desc">Subscriber lists, campaigns, autoresponders, and tracking</div>
+					<div class="plugin-meta">
+						<span class="plugin-desc">Subscriber lists, campaigns, autoresponders, and tracking</span>
+					</div>
 				</div>
 				<span class="plugin-version">v1.1.13</span>
 				<a href="https://github.com/ElmsPark-Studio/ep-suite-downloads/releases/download/latest/ep-newsletter-v1.1.13.zip" class="download-btn">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
 					Download
 				</a>
 			</div>
 		</div>
 
+		<!-- Add-Ons -->
+
 		<div class="section-label">Add-Ons</div>
 		<div class="plugin-grid">
 			<div class="plugin-card">
 				<div class="plugin-info">
-					<div class="plugin-name">EP Email File Uploads</div>
-					<div class="plugin-desc">Drag-and-drop file attachments for EP Email contact forms</div>
+					<div class="plugin-name">
+						EP Email File Uploads
+						<span class="plugin-requires-tag">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+							Requires EP Email
+						</span>
+					</div>
+					<div class="plugin-meta">
+						<span class="plugin-desc">Drag-and-drop file attachments for contact forms</span>
+					</div>
 				</div>
 				<span class="plugin-version">v1.0.10</span>
 				<a href="https://github.com/ElmsPark-Studio/ep-suite-downloads/releases/download/latest/ep-email-file-uploads-v1.0.10.zip" class="download-btn">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
 					Download
 				</a>
 			</div>
 			<div class="plugin-card">
 				<div class="plugin-info">
-					<div class="plugin-name">EP Booking Zoom</div>
-					<div class="plugin-desc">Automatic Zoom meeting creation for EP Booking appointments</div>
+					<div class="plugin-name">
+						EP Booking Zoom
+						<span class="plugin-requires-tag">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+							Requires EP Booking
+						</span>
+					</div>
+					<div class="plugin-meta">
+						<span class="plugin-desc">Automatic Zoom meeting creation for appointments</span>
+					</div>
 				</div>
 				<span class="plugin-version">v1.0.5</span>
 				<a href="https://github.com/ElmsPark-Studio/ep-suite-downloads/releases/download/latest/ep-booking-zoom-v1.0.5.zip" class="download-btn">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
 					Download
 				</a>
 			</div>
 			<div class="plugin-card">
 				<div class="plugin-info">
-					<div class="plugin-name">EP Newsletter SendGrid</div>
-					<div class="plugin-desc">SendGrid delivery driver for EP Newsletter campaigns</div>
+					<div class="plugin-name">
+						EP Newsletter SendGrid
+						<span class="plugin-requires-tag">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+							Requires EP Newsletter
+						</span>
+					</div>
+					<div class="plugin-meta">
+						<span class="plugin-desc">SendGrid delivery driver for newsletter campaigns</span>
+					</div>
 				</div>
 				<span class="plugin-version">v1.0.7</span>
 				<a href="https://github.com/ElmsPark-Studio/ep-suite-downloads/releases/download/latest/ep-newsletter-sendgrid-v1.0.7.zip" class="download-btn">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
 					Download
 				</a>
 			</div>
 		</div>
+
+		<!-- Utilities -->
 
 		<div class="section-label">Utilities</div>
 		<div class="plugin-grid">
 			<div class="plugin-card">
 				<div class="plugin-info">
 					<div class="plugin-name">EP Diagnostics</div>
-					<div class="plugin-desc">System health checks and environment diagnostics</div>
+					<div class="plugin-meta">
+						<span class="plugin-desc">System health checks and environment diagnostics</span>
+					</div>
 				</div>
 				<span class="plugin-version">v1.0.6</span>
 				<a href="https://github.com/ElmsPark-Studio/ep-suite-downloads/releases/download/latest/ep-diagnostics-v1.0.6.zip" class="download-btn">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
 					Download
 				</a>
 			</div>
 			<div class="plugin-card">
 				<div class="plugin-info">
 					<div class="plugin-name">EP Support</div>
-					<div class="plugin-desc">AI-powered support widget for your PageMotor site</div>
+					<div class="plugin-meta">
+						<span class="plugin-desc">AI-powered support widget for your PageMotor site</span>
+					</div>
 				</div>
 				<span class="plugin-version">v1.1.6</span>
 				<a href="https://github.com/ElmsPark-Studio/ep-suite-downloads/releases/download/latest/ep-support-v1.1.6.zip" class="download-btn">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
 					Download
 				</a>
 			</div>
@@ -304,7 +521,15 @@
 	</div>
 
 	<div class="footer">
-		<p>EP Suite by <a href="https://elmspark.com">ElmsPark</a> &mdash; Built for <a href="https://pagemotor.io">PageMotor</a></p>
+		<div class="footer-brand">
+			<span class="footer-logo">EP</span>
+		</div>
+		<p>Built for <a href="https://pagemotor.io">PageMotor</a> by <a href="https://elmspark.com">ElmsPark</a></p>
+		<div class="footer-links">
+			<a href="https://pagemotor.io">PageMotor</a>
+			<a href="https://elmspark.com">ElmsPark</a>
+			<a href="https://github.com/ElmsPark-Studio/ep-suite-downloads/releases">All Releases</a>
+		</div>
 	</div>
 
 </body>
