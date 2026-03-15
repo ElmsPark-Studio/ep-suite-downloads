@@ -1,15 +1,31 @@
 # EP Suite Downloads
 
-Official plugin downloads for the EP Suite collection for [PageMotor](https://pagemotor.com).
+Official plugin and theme downloads for the EP Suite collection for [PageMotor](https://pagemotor.com).
 
 ## How to Install
 
+**Plugins:**
 1. Download the plugin ZIP from the [Releases page](https://github.com/ElmsPark-Studio/ep-suite-downloads/releases/tag/latest)
 2. In your PageMotor admin, go to **Admin > Manage Plugins**
 3. Drag and drop the ZIP file onto the uploader
 4. The plugin will install and activate automatically
 
-## Current Versions
+**Themes:**
+1. Download the theme ZIP from the [Releases page](https://github.com/ElmsPark-Studio/ep-suite-downloads/releases/tag/latest)
+2. In your PageMotor admin, go to **Admin > Manage Themes**
+3. Drag and drop the ZIP file onto the uploader
+4. Activate from the Theme selector
+
+## Themes
+
+| Theme | Version | Description |
+|-------|---------|-------------|
+| ElmsPark | 1.0 | Modern theme with EP plugin integration and Discovery AI support |
+| ElmsPark Lite | 1.0 | Clean, lightweight theme with hero sections, cards, and responsive grids |
+
+Themes require PageMotor 0.7b or later.
+
+## Plugins
 
 | Plugin | Version | What It Does |
 |--------|---------|-------------|
@@ -23,14 +39,11 @@ Official plugin downloads for the EP Suite collection for [PageMotor](https://pa
 | EP Email File Uploads | 1.0.10 | File upload extension for EP Email contact forms |
 | EP Diagnostics | 1.0.6 | Server environment and plugin health checks |
 
-## Requirements
-
-- PageMotor 0.6 or later
-- EP Email is required by most plugins (install it first)
+Plugins require PageMotor 0.6b or later.
 
 ## Support
 
-For help with any EP plugin, visit the documentation sites linked above or contact [ElmsPark Consultants](https://elmspark.com).
+For help with any EP plugin or theme, visit the documentation sites linked above or contact [ElmsPark Consultants](https://elmspark.com).
 
 ---
 
